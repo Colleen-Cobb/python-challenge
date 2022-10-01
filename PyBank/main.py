@@ -17,7 +17,7 @@ total_months = 0
 total_net= 0
 month= []
 profits_losses= []
-last_value= 0
+value= 0
 changes= 0
 
 
@@ -32,6 +32,8 @@ with open(budgetpath) as csv_file:
     
     total_months = total_months + 1
 
+
+
     
 
    
@@ -42,53 +44,48 @@ with open(budgetpath) as csv_file:
    
     #one line of code for the total net and one line for the previous net 
     total_net += int(csv_first[1])
-    previous_net= int(csv_first[1])
+    value= int(csv_first[1])
 
     for row in csv_reader:
 
         total_months+=1
+
+
+        #calculate the net total amount of "Profit/Losses" over the entire period 
         total_net += int(row[1])
 
         #Keep track of the month
         month.append(row[0])
 
         #Keep track of the changes in profi/losses
-        changes = int(row[1])-last_value
+        changes = int(row[1])-value
         profits_losses.append(changes)
-        last_value= int(csv_first[1])
+        value= int(row[1])
 
+        
 
-
-        #net change
+        #calculate the average change in profit/losses
+        average_change= sum(profits_losses)/len(profits_losses)
 
         
         
 
-        #caluclate the greatest increase
-        greatest_increase= max(profits_losses)
+ #The greatest increase in profits (date and amount) over the entire period
+greatest_increase= max(profits_losses)
 
-        greatest_inc_value= profits_losses.index(greatest_increase)
+greatest_inc_value= profits_losses.index(greatest_increase)
 
-        greatest_inc_month= month[greatest_inc_value]
-
-
-        #calculate the greatest decrease
-  
-        greatest_decrease= min (profits_losses)
-
-        greatest_dec_value= profits_losses.index(greatest_decrease)
-
-        greatest_dec_month= month[greatest_dec_value]
+greatest_inc_month= month[greatest_inc_value]
 
 
-#net monthly average 
+    
 
-average_change= sum(profits_losses)/len(profits_losses)
+#The greatest decrease in profits (date and amount) over the entire period  
+greatest_decrease= min (profits_losses)
 
+greatest_dec_value= profits_losses.index(greatest_decrease)
 
-
-
-
+greatest_dec_month= month[greatest_dec_value]
 
 
 
@@ -105,6 +102,7 @@ output= (
 
 
 
+
 )
 
 print(output)
@@ -112,16 +110,12 @@ print(output)
 with open(outpath,"w") as text_file: 
     text_file.write(output)
        
-#
 
 
-    #The net total amount of 'Profit/Losses' over the entire perioed, and then the average of those changes
+
+   
 
 
-    #The greatest increase in profits (date and amount) over the entire period
-
-
-    #The greatest decrease in profits (date and amount) over the entire period
 
   
 
