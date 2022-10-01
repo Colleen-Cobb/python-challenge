@@ -13,4 +13,3 @@ THis python script uncovers the 'Total Months', 'Total" (net total), 'Average Ch
 ### PyPoll
 This python script analyzies a large set of poll data to  uncover the 'Total Votes', a list of candidates with their assigned percentage of votes as well as total number of votes won, and 'Winner'. The results of this script allows the viewer to determine which candidates received a certain portion of votes in various counties.
 
-![](python_stock_image.png)
