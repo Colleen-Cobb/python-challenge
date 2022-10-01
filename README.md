@@ -16,8 +16,8 @@ This python script analyzies a large set of poll data to  uncover the 'Total Vot
 ## Results 
 
 ### PyBank
-![results.txt](PyBank.Results.png)
+![PyBank Results](PyBank.Results.png)
 
 
 ### PyPoll
-![poll_results.txt](PyPoll.Results.png)
+![PyPoll Results](PyPoll.Results.png)
