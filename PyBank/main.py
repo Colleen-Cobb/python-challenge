@@ -33,14 +33,6 @@ with open(budgetpath) as csv_file:
     total_months = total_months + 1
 
 
-
-    
-
-   
-  
-
-
-
    
     #one line of code for the total net and one line for the previous net 
     total_net += int(csv_first[1])
